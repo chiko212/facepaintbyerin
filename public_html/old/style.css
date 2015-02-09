@@ -1,0 +1,159 @@
+
+body {
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background-image: url("images/background.jpg");
+    background-repeat: repeat;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl {
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+a img {
+    border: none;
+}
+
+a:link {
+    color:#414958;
+    text-decoration: underline;
+}
+a:visited {
+    color: #4E5869;
+    text-decoration: underline;
+}
+a:hover, a:active, a:focus {
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    max-width: 1260px;
+    min-width: 780px;
+    background-color: #FFF;
+    margin: 0 auto;
+}
+
+.header {
+    /*background-color: #781879;*/
+    background-color: #450046;
+    width: 100%;
+    float: left;
+    padding: 5px 0;
+}
+
+#contact {
+    float: right;
+    padding: 5px;
+    font-size: x-large;
+}
+#contact a {
+    text-decoration: none;
+    color: #FFF200;
+}
+
+#logo {
+    display: block;
+    float: left;
+    padding-left: 15px;
+    width: 35%;
+}
+
+#navbar {
+    font-size: large;
+    text-align: center;
+    text-shadow: 3px 2px 3px #333;
+    float: right;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 10px 0;
+    list-style-type: none;
+}
+
+#navbar ul li {
+    display: inline;
+}
+
+#navbar ul li a:link, #navbar ul li a:visited {
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 5px;
+}
+#navbar ul li a:hover, #navbar ul li a:active {
+    background-color: #942779;
+}
+
+
+.content {
+    padding: 10px 0;
+}
+
+.content ul, .content ol {
+    padding: 0 15px 15px 40px;
+    margin: 0 auto;
+}
+
+#erin {
+    float: right;
+    padding: 0 20px;
+}
+
+.footer {
+    padding: 10px;
+    background-color: #450046;
+    color: #FFF200;
+}
+
+.footer ul li {
+    list-style: none;
+}
+
+.footer a {
+    color: #FFF200;
+}
+
+
+.fltrt {
+    float: right;
+    margin-left: 8px;
+}
+.fltlft {
+    float: left;
+    margin-right: 8px;
+}
+.clearfloat {
+    clear: both;
+    height: 0;
+    font-size: 1px;
+    line-height: 0px;
+}
+
+ul.grid {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    padding-top: 10px;
+}
+ul.grid li {
+    display: inline;
+    list-style: none;
+    /*padding-left: 30px;*/
+    padding: 0 15px;
+}
+img.fit {
+    width: 20%;
+    padding-top: 15px;
+}
