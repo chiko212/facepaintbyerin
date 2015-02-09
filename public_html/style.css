@@ -68,6 +68,9 @@ nav ul li a:hover, nav ul li a:active {
     border-radius: 10px;
     display: inline-block;
 }
+.content ul {
+    overflow: auto;
+}
 
 .fltrt {
     float: right;
@@ -101,18 +104,15 @@ footer {
 
 /** ~~ facepaint ~~ **/
 ul.grid {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     text-align: center;
-    padding-top: 10px;
 }
 ul.grid li {
     display: inline;
     list-style: none;
-    /*padding-left: 30px;*/
-    padding: 0 15px;
 }
-img.fit {
+ul.grid img {
     width: 20%;
-    padding-top: 15px;
+    padding: 15px 15px 10px 0;
 }
