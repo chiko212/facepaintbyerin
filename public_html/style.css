@@ -67,9 +67,14 @@ nav ul li a:hover, nav ul li a:active {
     border: 2px solid transparent;
     border-radius: 10px;
     display: inline-block;
+    overflow: hidden;
 }
 .content ul {
     overflow: auto;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    text-transform: uppercase;
 }
 
 .fltrt {
@@ -91,9 +96,38 @@ footer {
 
 
 /** ~~ home ~~ **/
+#table_fix {
+    float:left;
+    width:340px;
+    height:420px;
+}
 #eg {
     float: left;
-    padding: 10px 20px 10px 10px;
+    margin: 10px 20px 10px 10px;
+}
+
+#events {
+    border-collapse: collapse;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#events td, #events th {
+    border: 1px solid #942779;
+    padding: 7px;
+}
+
+#events th {
+    background-color: #942779;
+    color: white;
+}
+
+#events tr td {
+    background-color: #fff3ff;
+}
+
+#events tr.alt td {
+    background-color: #ffdaff;
 }
 
 /** ~~ about ~~ **/
