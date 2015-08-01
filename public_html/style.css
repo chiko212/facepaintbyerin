@@ -83,6 +83,9 @@ nav ul li a:hover, nav ul li a:active {
 .fltlf {
     float: left;
 }
+clrflt {
+    clear: both;
+}
 
 footer {
     text-align: center;
@@ -101,7 +104,7 @@ footer {
     width: 340px;
     height: 420px;
 }
-#eg {
+.eg {
     float: left;
     margin: 10px 20px 10px 10px;
 }
