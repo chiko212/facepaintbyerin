@@ -97,9 +97,9 @@ footer {
 
 /** ~~ home ~~ **/
 #table_fix {
-    float:left;
-    width:340px;
-    height:420px;
+    float: left;
+    width: 340px;
+    height: 420px;
 }
 #eg {
     float: left;
@@ -149,4 +149,10 @@ ul.grid li {
 ul.grid img {
     width: 20%;
     padding: 15px 15px 10px 0;
+}
+#load_more {
+    margin: 5px auto;
+    display: block;
+    padding: 10px;
+    font-size: 200%;
 }

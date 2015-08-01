@@ -4,7 +4,9 @@
     <title>Face Paint By Erin</title>
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="phone.css" media="only screen and (max-device-width: 480px)" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -29,31 +31,67 @@ Small cheek or arm designs can be completed in under 1-2 minutes, averaging
 20-30 faces per hour. Full face designs can be completed in 3-10 minutes
 (depending on the complexity), averaging 10-15 faces per hour.</p>
 
-<ul class="grid">
-    <li><a href="images/facepainting/butterfly.png"><img src="images/facepainting/butterfly.png" alt=""></a></li>
-    <li><a href="images/facepainting/sugarskull.png"><img src="images/facepainting/sugarskull.png" alt=""></a></li>
-    <li><a href="images/facepainting/tiger.png"><img src="images/facepainting/tiger.png" alt=""></a></li>
-    <li><a href="images/facepainting/twinbutterfly.png"><img src="images/facepainting/twinbutterfly.png" alt=""></a></li>
-    <li><a href="images/facepainting/animals.png"><img src="images/facepainting/animals.png" alt=""></a></li>
-    <li><a href="images/facepainting/kitty.png"><img src="images/facepainting/kitty.png" alt=""></a></li>
-    <li><a href="images/facepainting/dragon.png"><img src="images/facepainting/dragon.png" alt=""></a></li>
-    <li><a href="images/facepainting/puppy.png"><img src="images/facepainting/puppy.png" alt=""></a></li>
-    <li><a href="images/facepainting/rainbowflower.png"><img src="images/facepainting/rainbowflower.png" alt=""></a></li>
-    <li><a href="images/facepainting/skull.png"><img src="images/facepainting/skull.png" alt=""></a></li>
-    <li><a href="images/facepainting/creeper.png"><img src="images/facepainting/creeper.png" alt=""></a></li>
-    <li><a href="images/facepainting/butterflyarm.png"><img src="images/facepainting/butterflyarm.png" alt=""></a></li>
-    <li><a href="images/facepainting/pinkbutterfly.png"><img src="images/facepainting/pinkbutterfly.png" alt=""></a></li>
-    <li><a href="images/facepainting/tiger2.png"><img src="images/facepainting/tiger2.png" alt=""></a></li>
-    <li><a href="images/facepainting/dolphin.png"><img src="images/facepainting/dolphin.png" alt=""></a></li>
-    <li><a href="images/facepainting/leopard.png"><img src="images/facepainting/leopard.png" alt=""></a></li>
-    <li><a href="images/facepainting/shark.png"><img src="images/facepainting/shark.png" alt=""></a></li>
-    <li><a href="images/facepainting/pirateship.png"><img src="images/facepainting/pirateship.png" alt=""></a></li>
-    <li><a href="images/facepainting/rainbowflowers2.png"><img src="images/facepainting/rainbowflowers2.png" alt=""></a></li>
-    <li><a href="images/facepainting/snake.png"><img src="images/facepainting/snake.png" alt=""></a></li>
-</ul>
+<ul class="grid"></ul>
+<button id="load_more">Load More Images...</button>
 </div>
 
     <footer>&copy; 2014-2015 Face Paint By Erin</footer>
 </div>
+<script type="text/javascript">
+var step_size = 4;
+var current_size = 0;
+var images = [
+    "butterfly.png",
+    "sugarskull.png",
+    "tiger.png",
+    "twinbutterfly.png",
+    "animals.png",
+    "kitty.png",
+    "dragon.png",
+    "puppy.png",
+    "rainbowflower.png",
+    "skull.png",
+    "creeper.png",
+    "butterflyarm.png",
+    "pinkbutterfly.png",
+    "tiger2.png",
+    "dolphin.png",
+    "leopard.png",
+    "shark.png",
+    "pirateship.png",
+    "rainbowflowers2.png",
+    "snake.png"
+];
+$(function(){
+    if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(window).scroll(function(){
+            console.log($(window).scrollTop() + "  " + ($(document).height() - $(window).height()));
+            if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
+                load_more();
+            }
+        });
+    }
+    $("#load_more").click(load_more).click().click();
+});
+
+function load_more() {
+    if (current_size < images.length) {
+        var grid = $(".grid");
+        for (var i = current_size; i < current_size+step_size; i++) {
+            grid.append($("<li></li>").append(
+                $("<a></a>").attr("href", "images/facepainting/" + images[i])
+                    .append(
+                        $("<img/>").attr("alt", "").attr("src", "images/facepainting/" + images[i])
+                    )
+                )
+            );
+        }
+        current_size += step_size;
+        if (current_size >= images.length) {
+            $("#load_more").hide();
+        }
+    }
+}
+</script>
 </body>
 </html>
