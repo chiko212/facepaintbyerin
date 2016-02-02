@@ -1,20 +1,18 @@
-
 h1, h2, h3, h4, h5, h6 {
     font-size: 300%;
 }
-
+p {
+    font-size: 150%;
+}
 .container {
     width: 100%;
 }
-
 #logo {
     margin: 2em 0;
 }
-
 nav {
     font-size: 200%;
 }
-
 #events {
     font-size: 200%;
 }
