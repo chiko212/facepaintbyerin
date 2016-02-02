@@ -83,7 +83,7 @@ nav ul li a:hover, nav ul li a:active {
 .fltlf {
     float: left;
 }
-clrflt {
+.clrflt {
     clear: both;
 }
 
@@ -140,6 +140,35 @@ footer {
 }
 
 /** ~~ facepaint ~~ **/
+#left {
+    float: left;
+    max-width: 50%;
+}
+#right {
+    float: right;
+    max-width: 50%;
+}
+ul.gallery {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+ul.gallery li {
+    display: inline;
+    list-style: none;
+}
+ul.gallery img {
+    width: 40%;
+    padding: 15px 15px 10px 0;
+}
+#load_more {
+    margin: 5px auto;
+    display: block;
+    padding: 10px;
+    font-size: 200%;
+}
+
+/* ~~ practice ~~ */
 ul.grid {
     margin: 0 auto;
     padding: 0;
@@ -152,10 +181,4 @@ ul.grid li {
 ul.grid img {
     width: 20%;
     padding: 15px 15px 10px 0;
-}
-#load_more {
-    margin: 5px auto;
-    display: block;
-    padding: 10px;
-    font-size: 200%;
 }

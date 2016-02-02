@@ -24,53 +24,107 @@
     </header>
 
 <div class="content">
-<h3>Gallery</h3>
-<p>Here are some examples of our face painting work. All designs are painted by
-hand using professional grade face paint, cosmetic glitter, brushes and sponges.
-Small cheek or arm designs can be completed in under 1-2 minutes, averaging
-20-30 faces per hour. Full face designs can be completed in 3-10 minutes
-(depending on the complexity), averaging 10-15 faces per hour.</p>
 
-<ul class="grid"></ul>
+<div id="right">
+    <h3>Cheek Art</h3>
+    <p id="cheek_para">These designs are quick to paint, making them a great choice for large
+    events. Small cheek or arm designs can be completed in under 1-2 minutes,
+    averaging 20-30 faces per hour.</p>
+    <ul class="gallery" id="cheek"></ul>
+</div>
+<div id="left">
+    <h3>Full Face Designs</h3>
+    <p id="face_para">All designs are painted by hand using professional grade face paint,
+    cosmetic glitter, brushes and sponges. Full face designs can be completed in
+    3-10 minutes (depending on the complexity), averaging 10-15 faces per hour.</p>
+    <ul class="gallery" id="face"></ul>
+</div>
+<div class="clrflt"></div>
 <button id="load_more">Load More Images...</button>
 </div>
 
-    <footer>&copy; 2014-2015 Face Paint By Erin</footer>
+    <footer>&copy; 2014-2016 Face Paint By Erin</footer>
 </div>
 <script type="text/javascript">
-var step_size = 4;
-var current_size = 0;
-var images = [
+var ImageScrollLoader = function(ul_id, image_list, step_size) {
+    var list_id = "#" + ul_id;
+    var images = image_list;
+    var step = step_size || 2;
+    var current_size = 0;
+
+    this.load_more = function() {
+        if (current_size < images.length) {
+            var grid = $(list_id);
+            var max = Math.min(images.length, current_size + step);
+            for (; current_size < max; ++current_size) {
+                grid.append($("<li></li>").append(
+                    $("<a></a>").attr("href", "images/facepainting/" + images[current_size])
+                        .append(
+                            $("<img/>").attr("alt", "").attr("src", "images/facepainting/" + images[current_size])
+                        )
+                    )
+                );
+            }
+        }
+    };
+
+    this.done = function() {
+        return current_size >= images.length;
+    };
+};
+
+
+var face = new ImageScrollLoader("face", [
+    "tiger.png",
     "butterfly.png",
     "cat.png",
     "dog.png",
-    "tiger.png",
+    "skull.png",
+    "wolf.png",
+    "peacock.png",
+    "puppydog.png",
+    "olaf.png",
+    "bunny2.png",
+    "bunny.png",
+    "dinosaur.png",
+    "butterflies.png",
+    "thegrinch.png",
+    "coyote.png",
+    "tiger2.png"
+]);
+
+var cheek = new ImageScrollLoader("cheek", [
+    "flowers.png",
+    "frozenbutterfly.png",
+    "cdragon.png",
+    "giraffe.png",
     "sunmoon.png",
     "unicorns.png",
     "octofish.png",
-    "hearts.png",
-    "peacock.png",
-    "puppydog.png",
-    "cdragon.png",
-    "giraffe.png",
+    "dolphin2.png",
     "batman.png",
     "angrybird.png",
     "jays.png",
-    "olaf.png",
-    "bunny.png",
-    "butterflies.png",
     "canada.png",
-    "dinosaur.png",
-    "dragon.png",
-    "flowers.png",
     "rainbow.png",
     "rainbowprints.png",
-    "skull.png",
     "spider.png",
-    "tiger2.png",
-    "tigercat.png"
-];
+    "snake.png"
+]);
+
 $(function(){
+    function done() {
+        return face.done() && cheek.done();
+    }
+
+    function load_more() {
+        face.load_more();
+        cheek.load_more();
+        if (done()) {
+            $("#load_more").hide();
+        }
+    }
+
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         $(window).scroll(function(){
             if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
@@ -78,27 +132,14 @@ $(function(){
             }
         });
     }
-    $("#load_more").click(load_more).click().click();
-});
+    $("#load_more").click(load_more).click();
 
-function load_more() {
-    if (current_size < images.length) {
-        var grid = $(".grid");
-        for (var i = current_size; i < current_size+step_size && i < images.length; i++) {
-            grid.append($("<li></li>").append(
-                $("<a></a>").attr("href", "images/facepainting/" + images[i])
-                    .append(
-                        $("<img/>").attr("alt", "").attr("src", "images/facepainting/" + images[i])
-                    )
-                )
-            );
-        }
-        current_size += step_size;
-        if (current_size >= images.length) {
-            $("#load_more").hide();
-        }
-    }
-}
+    var face_para = $("#face_para");
+    var cheek_para = $("#cheek_para");
+    var h = Math.max(face_para.height(), cheek_para.height());
+    face_para.height(h);
+    cheek_para.height(h);
+});
 </script>
 </body>
 </html>
