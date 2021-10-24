@@ -4,7 +4,11 @@ on:
   push:
     branches:
     - main
+    paths:
+    - public_html/**
   workflow_dispatch:
+
+concurrency: deploy
 
 jobs:
   deploy:
